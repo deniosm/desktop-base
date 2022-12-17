@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Default theme for Denios Gnu/Linux
+Description=A theme that features the Denios logo in a white spinning circle
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/denios
+ScriptFile=/usr/share/plymouth/themes/denios/denios.script

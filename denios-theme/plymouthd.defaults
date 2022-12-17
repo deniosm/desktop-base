@@ -1,0 +1,4 @@
+# Defaults provided by desktop-base for the denios theme
+[Daemon]
+Theme=denios
+ShowDelay=0
