@@ -4,6 +4,18 @@ set -e
 # Tag to allow some debhelper commands to inject relevant code
 #DEBHELPER#
 
+if [ "${1}" = "configure" ] && [ ! -z "${2}" ]; then
+    if dpkg --compare-versions ${2} le "9.0.0~exp1"; then
+        # Try remove folder if empty, left after 9.0.0~exp1 conf suppression
+        # by debhelper conffile handling
+        OLD_KDM_DIR=/etc/default/kdm.d
+        if [ -d ${OLD_KDM_DIR} ] ; then
+            echo "Removing old KDM configuration directory \"${OLD_KDM_DIR}\""
+            rmdir ${OLD_KDM_DIR} || true
+        fi
+    fi
+fi
+
 if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-remove" ]; then
     # Vendor logo alternative
     update-alternatives --install \
@@ -54,7 +66,15 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-remov
             desktop-theme \
             /usr/share/desktop-base/$theme-theme $priority
     done << EOF
-denios 80
+emerald 50
+homeworld 40
+futureprototype 40
+moonlight 40
+softwaves 40
+lines 40
+joy 40
+joy-inksplat 40
+spacefun 40
 EOF
 
     # Use active theme as highest priority for background
@@ -71,14 +91,38 @@ EOF
             desktop-background \
             /usr/share/desktop-base/$theme-theme/wallpaper/contents/images/$filename $priority
     done << EOF
-denios 1024x768.png 80
-denios 1280x1024.png 80
-denios 1280x800.png 80
-denios 1440x900.png 80
-denios 1600x1200.png 80
-denios 1920x1080.png 80
-denios 1920x1200.png 80
-denios 2560x1440.png 80
+emerald 1920x1080.svg 65
+homeworld 1920x1080.svg 50
+futureprototype 1920x1080.svg 50
+moonlight 1920x1080.svg 50
+softwaves 1024x768.svg 50
+softwaves 1280x720.svg 50
+softwaves 1280x800.svg 50
+softwaves 1280x1024.svg 50
+softwaves 1600x1200.svg 50
+softwaves 1920x1080.svg 50
+softwaves 1920x1200.svg 50
+softwaves 2560x1440.svg 50
+softwaves 2560x1600.svg 50
+lines 1280x1024.svg 50
+lines 1600x1200.svg 50
+lines 1920x1080.svg 50
+lines 1920x1200.svg 50
+lines 2560x1080.svg 50
+joy 1280x720.svg 50
+joy 1280x1024.svg 50
+joy 1600x1200.svg 50
+joy 1920x1080.svg 50
+joy 1920x1200.svg 50
+joy-inksplat 1280x720.svg 50
+joy-inksplat 1280x1024.svg 50
+joy-inksplat 1600x1200.svg 50
+joy-inksplat 1920x1080.svg 50
+joy-inksplat 1920x1200.svg 50
+spacefun 1280x720.svg 50
+spacefun 1280x1024.svg 50
+spacefun 1920x1080.svg 50
+spacefun 1920x1200.svg 50
 EOF
 
     # Set up an alternative for the XML version of the background
@@ -97,7 +141,15 @@ EOF
             desktop-background.xml \
             /usr/share/desktop-base/$theme-theme/wallpaper/gnome-background.xml $priority
     done << EOF
-denios 80
+emerald 40
+homeworld 30
+futureprototype 30
+moonlight 30
+softwaves 30
+lines 30
+joy 30
+joy-inksplat 30
+spacefun 30
 EOF
 
     # Set up an alternative for the XML version of the lock screen
@@ -116,7 +168,14 @@ EOF
             desktop-lockscreen.xml \
             /usr/share/desktop-base/$theme-theme/lockscreen/gnome-background.xml $priority
     done << EOF
-denios 80
+emerald 40
+homeworld 30
+futureprototype 30
+moonlight 30
+softwaves 30
+lines 30
+joy 30
+spacefun 30
 EOF
 
     # Set up an alternative for the wallpaper for Plasma 5/KDE
@@ -134,24 +193,39 @@ EOF
             desktop-plasma5-wallpaper \
             /usr/share/desktop-base/$theme-theme/wallpaper $priority
     done << EOF
-denios 80
+emerald 40
+homeworld 30
+futureprototype 30
+moonlight 30
+softwaves 30
+lines 30
+joy 30
+joy-inksplat 30
+spacefun 30
 EOF
 
     # Login theme
     # Highest priority for active theme
-    active_login_background=/usr/share/desktop-base/active-theme/login/background.jpg
+    active_login_background=/usr/share/desktop-base/active-theme/login/background.svg
     if [ -e ${active_login_background} ]; then
-        update-alternatives --install /usr/share/images/desktop-base/login-background.jpg \
-            desktop-login-background ${active_login_background} 80 || true
+        update-alternatives --install /usr/share/images/desktop-base/login-background.svg \
+            desktop-login-background ${active_login_background} 50
     fi
     # Alternatives for theme packages
     while read theme background priority; do
-        update-alternatives --install /usr/share/images/desktop-base/login-background.jpg \
+        update-alternatives --install /usr/share/images/desktop-base/login-background.svg \
             desktop-login-background \
-            /usr/share/desktop-base/$theme-theme/login/$background $priority || true
+            /usr/share/desktop-base/$theme-theme/login/$background $priority
     done << EOF
-
-denios background.jpg 80
+emerald background.svg 40
+homeworld background.svg 30
+futureprototype background.svg 30
+moonlight background.svg 30
+softwaves background.svg 30
+lines background.svg 30
+lines background-nologo.svg 30
+joy background.svg 30
+spacefun background.svg 30
 EOF
 
     # Set up an alternative for the GRUB background/colors config
@@ -194,8 +268,22 @@ EOF
             desktop-grub.sh \
             /usr/share/desktop-base/$theme-theme/grub/grub_background.sh
     done << EOF
-denios 4x3 80
-denios 16x9 80
+emerald 4x3 40
+emerald 16x9 40
+homeworld 4x3 30 
+homeworld 16x9 30
+futureprototype 4x3 30
+futureprototype 16x9 30
+moonlight 4x3 30
+moonlight 16x9 30
+softwaves 4x3 30
+softwaves 16x9 30
+lines 4x3 30
+lines 16x9 30
+joy 4x3 30
+joy 16x9 30
+spacefun 4x3 30
+spacefun 16x9 30
 EOF
 
     # Apply GRUB background update into /boot
