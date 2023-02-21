@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Contact: Debian Desktop List <debian-desktop@lists.debian.org>
-Source: https://salsa.debian.org/debian-desktop-team/desktop-base/
+Upstream-Contact: Denis Maslo <denios-linux@proton.me>
+Source: https://github.com/deniosm/desktop-base
 
 Files: *
 Copyright: 2002, Colin Walters <walters@debian.org>

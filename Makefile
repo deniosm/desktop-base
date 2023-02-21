@@ -58,7 +58,7 @@ install-local:
 	mkdir -p $(DESTDIR)/usr/share/gnome-background-properties
 
 
-	# Denios theme
+	# DENIOS theme
 	### Plymouth theme
 	install -d $(DESTDIR)/usr/share/plymouth/themes/denios
 	$(INSTALL) $(wildcard denios-theme/plymouth/*) $(DESTDIR)/usr/share/plymouth/themes/denios

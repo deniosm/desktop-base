@@ -1,13 +1,21 @@
-desktop-base (12.5+denios1) unstable; urgency=medium
+desktop-base (13.6+denios1) testing; urgency=medium
 
-  * 12.5 Initial Version
-  * Due to specific dependency problems, 
+  * 13.5 Initial Version
+  * Due to specific dependency problems,
+  the version number was modified and split into a new branch.
+  * Import new Debian release.
+  * Update Denios theme.
+  * Remove Debian themes.
+
+ -- Denis Maslo <denios-linux@proton.me>  Tue, 21 Feb 2023 19:43:15 +0100
+
+desktop-base (13.5+denios1) unstable; urgency=medium
+
+  * 13.5 Initial Version
+  * Due to specific dependency problems,
   the version number was modified and split into a new branch.
   * Import new Debian release.
   * Update Denios theme.
   * Remove Debian themes.
 
  -- Denis Maslo <denios-linux@proton.me>  Wed, 18 Jan 2023 09:24:55 +0100
- 
- 
- 

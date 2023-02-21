@@ -12,19 +12,17 @@ Build-Depends: debhelper (>= 13),
 Rules-Requires-Root: no
 Standards-Version: 4.5.0
 Homepage: https://github.com/deniosm/desktop-base
+Vcs-Browser: https://github.com/deniosm/desktop-base
+Vcs-Git: https://github.com/deniosm/desktop-base.git
 
 
 Package: desktop-base
 Architecture: all
-Depends: librsvg2-common,
-# For the login background with logo
-         fonts-quicksand,
-Recommends: plymouth-label
-Description: common files for the Denios Gnu/Linux Desktop
+Depends: librsvg2-common, fonts-quicksand, plymouth-label
+Description: common files for the DENIOS OS Desktop
  This package contains various miscellaneous files which are used by
  Debian Desktop installations.  Currently, it provides some
  Debian-related artwork and themes, .desktop files containing links to
  Debian related material (suitable for placement on a user's desktop),
  and other common files between the available desktop environments
- such as GNOME and KDE.This package was customized for Denios Gnu/Linux.
-
+ such as GNOME and KDE.

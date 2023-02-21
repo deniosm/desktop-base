@@ -1,6 +1,6 @@
 [Plymouth Theme]
-Name=Default theme for Denios OS
-Description=A theme that features the Denios OS logo in a white spinning circle
+Name=Default theme for DENIOS OS
+Description=A theme that features the DENIOS OS logo in a white spinning circle
 ModuleName=script
 
 [script]

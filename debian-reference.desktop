@@ -2,6 +2,6 @@
 Version=1.1
 Name=Debian Reference Manual
 Comment=An introduction and reference manual for Debian
-Icon=logo.png
+Icon=emblem-debian
 Type=Link
 URL=https://www.debian.org/doc/manuals/reference/
