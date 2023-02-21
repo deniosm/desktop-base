@@ -1,11 +1,6 @@
 desktop-base (13.6+denios1) testing; urgency=medium
 
-  * 13.5 Initial Version
-  * Due to specific dependency problems,
-  the version number was modified and split into a new branch.
-  * Import new Debian release.
-  * Update Denios theme.
-  * Remove Debian themes.
+  * Rebuild package
 
  -- Denis Maslo <denios-linux@proton.me>  Tue, 21 Feb 2023 19:43:15 +0100
 
